@@ -1,38 +1,94 @@
+import java.util.ArrayList;
+
 public class Lecture4Exercises {
 
-    /*
-     *   implement a function that returns factorial of given n
-     *   lecture 4 page 15
-     */
     public long factorial(int n) {
-        return 0L;
+        if(n == 0 || n == 1)
+        {
+            return 1;
+        }
+
+        else
+        {
+            return factorial(n-1) * n ;
+        }
+
     }
 
-    /*
-     *   implement a function that return nth number of fibonacci series
-     *   the series -> 1, 1, 2, 3, 5, 8, ...
-     *   lecture 4 page 19
-     */
     public long fibonacci(int n) {
-        return 0;
+
+        if(n == 1 || n == 0)
+        {
+            return n;
+        }
+
+        else
+        {
+            return fibonacci(n-2) + fibonacci(n-1);
+        }
+
     }
 
-    /*
-     *   implement a function that return reverse of a given word
-     *   lecture 4 page 19
-     */
+
     public String reverse(String word) {
-        return null;
+
+        char[] w = word.toCharArray();
+        String word2 = "";
+
+        for(int i = w.length - 1 ; i >= 0  ; i--)
+        {
+            String ch = String.valueOf(w[i]);
+            word2 += ch ;
+        }
+
+        return word2;
     }
 
-    /*
-     *   implement a function that returns true if the given line is
-     *   palindrome and false if it is not palindrome.
-     *   palindrome is like 'wow', 'never odd or even', 'Wow'
-     *   lecture 4 page 19
-     */
+
     public boolean isPalindrome(String line) {
-        return false;
+
+        char[] w = line.toCharArray();
+
+        String word3 = "";
+
+        for(int i = 0 ; i <= w.length - 1  ; i++)
+        {
+            if(w[i] == ' ')
+            {
+                continue;
+            }
+            else
+            {
+                String ch = String.valueOf(w[i]);
+                word3 += ch ;
+            }
+        }
+
+        String word2 = "";
+
+        for(int i = w.length - 1 ; i >= 0  ; i--)
+        {
+            if(w[i] == ' ')
+            {
+                continue;
+            }
+            else
+            {
+                String ch = String.valueOf(w[i]);
+                word2 += ch ;
+            }
+        }
+
+        if(word2.equalsIgnoreCase(word3))
+        {
+            return true;
+        }
+
+        else
+        {
+            return false;
+        }
+
     }
 
     /*
@@ -47,6 +103,31 @@ public class Lecture4Exercises {
      *   lecture 4 page 26
      */
     public char[][] dotPlot(String str1, String str2) {
-        return null;
+
+        char[] ch1 = str1.toCharArray();
+        char[] ch2 = str2.toCharArray();
+        char[][] last = new char[str1.length()][str2.length()];
+
+        for (int i = 0 ; i < str1.length() ; i++ )
+        {
+            for(int j = 0 ; j < str2.length() ; j++)
+            {
+                if(ch1[i] == ch2[j])
+                {
+//                    System.out.print("*");
+                    last[i][j] = '*';
+                }
+
+                else
+                {
+//                    System.out.print(" ");
+                    last[i][j] = ' ';
+                }
+            }
+
+//            System.out.println();
+        }
+
+        return last;
     }
 }
